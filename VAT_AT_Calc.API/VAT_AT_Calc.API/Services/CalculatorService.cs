@@ -7,9 +7,7 @@ namespace VAT_AT_Calc.API.Services
     public class CalculatorService : ICalculatorService
     {
         public CalculatorService()
-        {
-
-        }
+        {}
 
         public ValueAddedTaxAmounts CalculateValueAddedTax(CalculatorRequestDto calculatorRequestDto)
         {

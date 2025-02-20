@@ -16,7 +16,6 @@ namespace VAT_AT_Calc.API.Middlewares
             try
             {
                 await _next(httpContext);
-
             }
             catch (Exception)
             {

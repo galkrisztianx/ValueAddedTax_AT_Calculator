@@ -1,0 +1,51 @@
+<div class="container">
+  <h3>VAT Calculator</h3>
+  <div>
+    <form class="calculator-form" 
+    #calculatorForm="ngForm"
+    novalidate
+    autocomplete="off"
+    [appCalculatorInputValidator]="['net','vatAmonut','gross']"
+    >
+      <mat-grid-list cols="1" rowHeight="5em">
+        <mat-grid-tile>
+          <mat-radio-group aria-label="Select a VAT rate" (change)="onCalcRadioButtonChange($event)">
+            <mat-radio-button [value]="10">10%</mat-radio-button>
+            <mat-radio-button [value]="13">13%</mat-radio-button>
+            <mat-radio-button [value]="20">20%</mat-radio-button>
+          </mat-radio-group>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="calculator-input">
+            <mat-label>Price without VAT</mat-label>
+            <input matInput type="number" [(ngModel)]="valueAddedTaxAmounts().net" name="net" #net="ngModel" appPositiveNumber>
+            <mat-error *ngIf="isSubmitted() 
+            && calculatorForm.controls?.['net']?.errors">Value is a not a valid positive number!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field class="calculator-input">
+            <mat-label>Value-added Tax</mat-label>
+            <input matInput type="number" [(ngModel)]="valueAddedTaxAmounts().valueAddedTaxAmount" name="vatAmonut" #vatAmonut="ngModel" appPositiveNumber>
+            <mat-error *ngIf="isSubmitted() && calculatorForm.controls?.['vatAmonut']?.errors">Value is a not a valid positive number!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+        <mat-form-field class="calculator-input">
+          <mat-label>Price including VAT</mat-label>
+          <input matInput type="number" [(ngModel)]="valueAddedTaxAmounts().gross" name="gross" #gross="ngModel" appPositiveNumber>
+          <mat-error *ngIf="isSubmitted() && calculatorForm.controls?.['gross']?.errors">Value is a not a valid positive number!</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-error *ngIf="isSubmitted() 
+        && calculatorForm.form.hasError('wrongInputs')">Select a VAT rate and provide a single input! </mat-error>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <div class="form-buttons">
+      <button mat-flat-button color="success" class="form-button" (click)="onSubmitCalculatorForm()">Calculate</button>
+      <button mat-flat-button color="warn" class="form-button" (click)="resetCalculatorForm()">Reset</button>
+    </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[matinput]::-webkit-outer-spin-button,
+input[matinput]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[matinput][type=number] {
+  -moz-appearance: textfield;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /* background-color: DodgerBlue; */
+  align-items: center;
+}
+
+.container > div {
+  /* background-color: #f1f1f1; */
+  width: 50em; 
+  max-width: 100%;
+  text-align: center;
+}
+
+.container > h3 {
+  /* background-color: #f1f1f1; */
+  width: 50em; 
+  max-width: 100%;
+  text-align: center;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.form-button {
+  width: 8em;
+  text-align: center;
+}
+
+.calculator-input {
+  width: 20em;
+}

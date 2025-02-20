@@ -18,8 +18,6 @@ namespace VAT_AT_Calc.API.Controllers
         [HttpPost("CalculateValueAddedTax")]
         public ActionResult<ValueAddedTaxAmounts> CalculateValueAddedTax([FromBody] CalculatorRequestDto calculatorRequestDto)
         {
-            //throw new Exception("test"); 
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
